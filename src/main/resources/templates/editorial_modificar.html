@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Editoriales</title>
+        <!-- CSS de Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- JavaScript de Bootstrap (jQuery es requerido) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid m-5 contenedor">
+            <form class="formulario" th:action="@{/editorial/modificar/__${editorial.id}__}" method="POST">
+
+                <input hidden th:value="${id}" name="id">
+                
+                <div class="form-group my-3">
+
+                    <label class="mb-2">Cargar Editorial</label>
+                    <input th:value="${editorial.nombre}" type="text" class="form-control" name="nombre">
+
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-3 botones"> Actualizar </button>
+            </form>
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Biblioteca Egg</title>
+        <!-- CSS de Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- JavaScript de Bootstrap (jQuery es requerido) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <header class="container">
+            <div>
+                <h2>Carga el autor aquí: </h2>
+            </div>
+        </header>
+
+        <div class="container">
+            
+            <form action="/autor/registro" method="POST"> 
+
+                <div class="form-group">
+                    <input type="text" class="form-group" name="nombre" placeholder="Nombre de Autor">
+                </div>
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error</h5>
+                        <p class="card-text" th:text="${error}" ></p>
+                    </div>
+                </div>
+
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3 mensajeExito">
+                    <div class="card-body">
+                        <h5 class="card-title">Exito!</h5>
+                        <p class="card-text" th:text="${exito}" ></p>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary"> Subir </button>
+            </form>
+
+        </div>
+    </body>
+</html>
